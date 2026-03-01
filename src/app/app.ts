@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './Views/navbar/navbar/navbar';
 import { HeroComponent } from './Views/hero/hero';
 import { ServicesComponent } from './Views/services/services';
@@ -12,8 +11,7 @@ import { WhatsappFloatComponent } from './Views/whatsapp-float/whatsapp-float';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,
-    CommonModule,
+  imports: [CommonModule,
     NavbarComponent,
     HeroComponent,
     ServicesComponent,

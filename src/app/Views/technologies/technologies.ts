@@ -111,13 +111,13 @@ export class TechnologiesComponent {
     { name: 'React Native', category: 'Mobile', icon: '📱', color: '#61DAFB' },
     { name: 'Flutter', category: 'Mobile', icon: '🦋', color: '#02569B' },
     { name: 'Kotlin', category: 'Mobile', icon: '🤖', color: '#7F52FF' },
-    { name: 'Swift', category: 'Mobile', icon: '🍎', color: '#FA7343' },
+    /* { name: 'Swift', category: 'Mobile', icon: '🍎', color: '#FA7343' }, */
 
     // DevOps & Cloud
     { name: 'Docker', category: 'DevOps & Cloud', icon: '🐳', color: '#2496ED' },
     { name: 'GitHub Actions', category: 'DevOps & Cloud', icon: '⚙️', color: '#2088FF' },
     { name: 'Azure', category: 'DevOps & Cloud', icon: '☁️', color: '#0078D4' },
-    { name: 'AWS', category: 'DevOps & Cloud', icon: '🌩️', color: '#FF9900' },
+    /* { name: 'AWS', category: 'DevOps & Cloud', icon: '🌩️', color: '#FF9900' }, */
     { name: 'Kubernetes', category: 'DevOps & Cloud', icon: '☸️', color: '#326CE5' },
     { name: 'CI/CD', category: 'DevOps & Cloud', icon: '🔄', color: '#00D084' },
 
@@ -132,8 +132,8 @@ export class TechnologiesComponent {
     { name: 'VS Code', category: 'Herramientas', icon: '💻', color: '#007ACC' },
     { name: 'Figma', category: 'Herramientas', icon: '🎨', color: '#F24E1E' },
     { name: 'Postman', category: 'Herramientas', icon: '📮', color: '#FF6C37' },
-    { name: 'Jira', category: 'Herramientas', icon: '📊', color: '#0052CC' },
-    { name: 'Slack', category: 'Herramientas', icon: '💬', color: '#4A154B' }
+    /* { name: 'Jira', category: 'Herramientas', icon: '📊', color: '#0052CC' },
+    { name: 'Slack', category: 'Herramientas', icon: '💬', color: '#4A154B' } */
   ];
 
   stats = [
