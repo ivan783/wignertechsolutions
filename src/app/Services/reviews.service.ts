@@ -38,7 +38,7 @@ export class ReviewsService {
   async getReviews(): Promise<Review[]> {
     const q = query(collection(this.db, 'reviews'), orderBy('createdAt', 'desc'));
     const snapshot = await getDocs(q);
-    return snapshot.docs.map(doc => ({
+    return snapshot.docs.map((doc: import('firebase/firestore').QueryDocumentSnapshot) => ({
       id: doc.id,
       ...doc.data(),
       createdAt: (doc.data()['createdAt'] as Timestamp).toDate()
