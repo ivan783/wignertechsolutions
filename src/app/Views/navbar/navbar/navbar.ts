@@ -5,80 +5,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <nav [class.scrolled]="isScrolled"
-         class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-         [ngClass]="isScrolled ? 'bg-dark-900/95 backdrop-blur-lg shadow-xl' : 'bg-transparent'">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-
-          <!-- Logo -->
-          <div class="flex-shrink-0">
-            <a href="#home" class="flex items-center space-x-3 group">
-              <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
-                <span class="text-white font-bold text-xl">W</span>
-              </div>
-              <div class="hidden sm:block">
-                <h1 class="text-xl font-display font-bold text-white">WignerTech</h1>
-                <p class="text-xs text-primary-400 -mt-1">Solutions</p>
-              </div>
-            </a>
-          </div>
-
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex items-center space-x-1">
-            <a *ngFor="let item of menuItems"
-               [href]="item.link"
-               class="px-4 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200 font-medium">
-              {{ item.label }}
-            </a>
-          </div>
-
-          <!-- CTA Button Desktop -->
-          <div class="hidden md:block">
-            <a href="#contact"
-               class="px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/50 transform hover:scale-105 transition-all duration-200">
-              Contáctanos
-            </a>
-          </div>
-
-          <!-- Mobile Menu Button -->
-          <button (click)="toggleMobileMenu()"
-                  class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-white/10 transition-colors">
-            <svg *ngIf="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-            <svg *ngIf="mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div *ngIf="mobileMenuOpen"
-           class="md:hidden bg-dark-800/98 backdrop-blur-lg border-t border-white/10 animate-fade-in">
-        <div class="px-4 py-6 space-y-3">
-          <a *ngFor="let item of menuItems"
-             [href]="item.link"
-             (click)="closeMobileMenu()"
-             class="block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200 font-medium">
-            {{ item.label }}
-          </a>
-          <a href="#contact"
-             (click)="closeMobileMenu()"
-             class="block px-4 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl font-semibold text-center">
-            Contáctanos
-          </a>
-        </div>
-      </div>
-    </nav>
-  `,
-  styles: [`
-    :host {
-      display: block;
-    }
-  `]
+  templateUrl: './navbar.html',
+  styleUrl: './navbar.css'
 })
 export class NavbarComponent {
   isScrolled = false;
@@ -89,6 +17,7 @@ export class NavbarComponent {
     { label: 'Servicios', link: '#services' },
     { label: 'Tecnologías', link: '#tech' },
     { label: 'Proyectos', link: '#projects' },
+    { label: 'Reseñas', link: '#reviews' },
     { label: 'Contacto', link: '#contact' }
   ];
 

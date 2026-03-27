@@ -5,46 +5,29 @@ import { HeroComponent } from './Views/hero/hero';
 import { ServicesComponent } from './Views/services/services';
 import { TechnologiesComponent } from './Views/technologies/technologies';
 import { ProjectsComponent } from './Views/projects/projects';
+import { ReviewsComponent } from './Views/reviews/reviews';
 import { ContactComponent } from './Views/contact/contact';
 import { FooterComponent } from './Views/footer/footer';
 import { WhatsappFloatComponent } from './Views/whatsapp-float/whatsapp-float';
+import { ChatbotComponent } from './Views/chatbot/chatbot';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     NavbarComponent,
     HeroComponent,
     ServicesComponent,
     TechnologiesComponent,
     ProjectsComponent,
+    ReviewsComponent,
     ContactComponent,
     FooterComponent,
-    WhatsappFloatComponent
+    WhatsappFloatComponent,
+    ChatbotComponent
   ],
-  template: `
-    <div class="min-h-screen bg-dark-950">
-      <!-- Navigation -->
-      <app-navbar />
-
-      <!-- Main Content -->
-      <main>
-        <app-hero />
-        <app-services />
-        <app-technologies />
-        <app-projects />
-        <app-contact />
-      </main>
-
-      <!-- Footer -->
-      <app-footer />
-
-      <!-- WhatsApp Float Button -->
-      <app-whatsapp-float />
-    </div>
-  `,
-  //templateUrl: './app.html',
-  //styleUrl: './app.css'
-  styles: []
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('wigner-tech-solutions');

@@ -6,35 +6,37 @@ export interface ContactForm {
   message: string;
 }
 
+export interface WhatsAppContact {
+  name: string;
+  role: string;
+  phone: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class WhatsappService {
-  // ⚠️ IMPORTANTE: Reemplaza con tu número de WhatsApp (con código de país, sin +)
-  // Ejemplo Bolivia: '591XXXXXXXXX'
-  // Ejemplo México: '52XXXXXXXXXX'
-  private readonly phoneNumber = '59167121268'; // CAMBIA ESTE NÚMERO
 
-  constructor() { }
+  readonly contacts: WhatsAppContact[] = [
+    { name: 'Wigner Tech', role: 'Ventas & Proyectos', phone: '59167121268' },
+    { name: 'Wigner Tech', role: 'Soporte Técnico',   phone: '59173201482' }
+  ];
 
-  /**
-   * Envía un mensaje directo de contacto a WhatsApp
-   */
-  sendContactMessage(contact: ContactForm): void {
+  sendContactMessage(contact: ContactForm, phone?: string): void {
     const message = this.formatContactMessage(contact);
-    this.openWhatsApp(message);
+    const target = phone ?? this.contacts[0].phone;
+    this.openWhatsApp(target, message);
   }
 
-  /**
-   * Abre WhatsApp con un mensaje simple
-   */
-  sendSimpleMessage(message: string): void {
-    this.openWhatsApp(message);
+  sendSimpleMessage(message: string, phone?: string): void {
+    const target = phone ?? this.contacts[0].phone;
+    this.openWhatsApp(target, message);
   }
 
-  /**
-   * Formatea el mensaje del formulario de contacto
-   */
+  getWhatsAppLink(phone?: string): string {
+    return `https://wa.me/${phone ?? this.contacts[0].phone}`;
+  }
+
   private formatContactMessage(contact: ContactForm): string {
     return `¡Hola! Me gustaría contactar con WignerTechSolutions
 
@@ -44,21 +46,8 @@ export class WhatsappService {
 ${contact.message}`;
   }
 
-  /**
-   * Abre WhatsApp con el mensaje formateado
-   */
-  private openWhatsApp(message: string): void {
+  private openWhatsApp(phone: string, message: string): void {
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${this.phoneNumber}?text=${encodedMessage}`;
-
-    // Abre en una nueva pestaña
-    window.open(whatsappUrl, '_blank');
-  }
-
-  /**
-   * Obtiene el link de WhatsApp sin mensaje predefinido
-   */
-  getWhatsAppLink(): string {
-    return `https://wa.me/${this.phoneNumber}`;
+    window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
   }
 }
