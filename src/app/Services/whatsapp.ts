@@ -18,8 +18,8 @@ export interface WhatsAppContact {
 export class WhatsappService {
 
   readonly contacts: WhatsAppContact[] = [
-    { name: 'Wigner Tech', role: 'Ventas & Proyectos', phone: '59167121268' },
-    { name: 'Wigner Tech', role: 'Soporte Técnico',   phone: '59173201482' }
+    { name: 'DevBridge', role: 'Ventas & Proyectos', phone: '59167121268' },
+    { name: 'DevBridge', role: 'Soporte Técnico',   phone: '59173201482' }
   ];
 
   sendContactMessage(contact: ContactForm, phone?: string): void {
@@ -38,7 +38,7 @@ export class WhatsappService {
   }
 
   private formatContactMessage(contact: ContactForm): string {
-    return `¡Hola! Me gustaría contactar con WignerTechSolutions
+    return `¡Hola! Me gustaría contactar con DevBridge Solutions
 
 *Nombre:* ${contact.name}
 *Email:* ${contact.email}

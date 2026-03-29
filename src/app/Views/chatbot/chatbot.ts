@@ -27,7 +27,7 @@ export class ChatbotComponent {
   messages: Message[] = [
     {
       from: 'bot',
-      text: '¡Hola! 👋 Soy el asistente virtual de WignerTechSolutions. ¿En qué puedo ayudarte hoy?',
+      text: '¡Hola! 👋 Soy el asistente virtual de DevBridge Solutions. ¿En qué puedo ayudarte hoy?',
       time: new Date()
     }
   ];
@@ -55,7 +55,7 @@ export class ChatbotComponent {
     },
     {
       keywords: ['contacto', 'contactar', 'comunicar', 'escribir', 'whatsapp', 'correo', 'email'],
-      response: '📞 Puedes contactarnos por:\n\n💬 WhatsApp: +591 67121268 o +591 73201482\n📧 Email: wignertechsolutions@gmail.com\n📍 100% Remoto\n⏰ Lun-Vie: 09:00 - 20:00'
+      response: '📞 Puedes contactarnos por:\n\n💬 WhatsApp: +591 67121268 o +591 73201482\n📧 Email: devbridgesolutions@gmail.com\n📍 100% Remoto\n⏰ Lun-Vie: 09:00 - 20:00'
     },
     {
       keywords: ['proyecto', 'portfolio', 'trabajos', 'ejemplos', 'clientes'],

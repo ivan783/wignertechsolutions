@@ -30,5 +30,5 @@ import { ChatbotComponent } from './Views/chatbot/chatbot';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('wigner-tech-solutions');
+  protected readonly title = signal('devbridge-solutions');
 }
