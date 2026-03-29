@@ -16,6 +16,7 @@ export class ReviewsComponent implements OnInit {
   isSubmitting = false;
   showSuccess = false;
   showForm = false;
+  errorMessage = '';
 
   newReview = { name: '', comment: '', rating: 0 };
   hoverRating = 0;
@@ -28,10 +29,14 @@ export class ReviewsComponent implements OnInit {
 
   async loadReviews() {
     this.isLoading = true;
+    this.errorMessage = '';
     try {
       this.reviews = await this.reviewsService.getReviews();
-    } catch {
+    } catch (err: unknown) {
       this.reviews = [];
+      const msg = err instanceof Error ? err.message : String(err);
+      this.errorMessage = `Error al cargar reseñas: ${msg}`;
+      console.error('[WYNOVA Reviews] loadReviews error:', err);
     }
     this.isLoading = false;
   }
@@ -70,12 +75,15 @@ export class ReviewsComponent implements OnInit {
     try {
       await this.reviewsService.addReview(this.newReview);
       this.showSuccess = true;
+      this.errorMessage = '';
       this.newReview = { name: '', comment: '', rating: 0 };
       this.showForm = false;
       await this.loadReviews();
       setTimeout(() => { this.showSuccess = false; }, 4000);
-    } catch {
-      // handle error silently
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      this.errorMessage = `No se pudo guardar la reseña: ${msg}`;
+      console.error('[WYNOVA Reviews] addReview error:', err);
     }
     this.isSubmitting = false;
   }
